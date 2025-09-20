@@ -67,13 +67,62 @@
       backdrop-filter:blur(8px);
       border-bottom:1px solid var(--border);
     }
-    .nav{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0}
+    .nav{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0; align-items:center}
     .nav a{
       padding:8px 12px; border-radius:999px; font-size:14px;
       background:#f3f4f6; color:#111827; border:1px solid var(--border);
       box-shadow:var(--shadow-soft);
     }
     .nav a:hover{background:#e5e7eb; text-decoration:none}
+
+    /* Dropdown (accessible, CSS-only) */
+    .nav details.dropdown { position: relative; }
+    .nav details.dropdown > summary {
+      list-style: none;
+      padding: 8px 12px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: var(--shadow-soft);
+      user-select: none;
+      font-size:14px;
+    }
+    .nav details.dropdown > summary::-webkit-details-marker { display: none; }
+    .nav details.dropdown[open] > summary { background: var(--chip); color: var(--chip-text); }
+    .nav details.dropdown .menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      min-width: 220px;
+      padding: 6px;
+      z-index: 20;
+    }
+    .nav details.dropdown .menu a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      background: transparent;
+      border: 0;
+    }
+    .nav details.dropdown .menu a:hover { background: var(--surface); text-decoration: none; }
+
+    /* On small screens, dropdown becomes inline */
+    @media (max-width: 700px) {
+      .nav details.dropdown .menu {
+        position: static;
+        box-shadow: none;
+        border: 0;
+        padding: 4px 0 0;
+        min-width: 0;
+      }
+    }
 
     .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
     @media(min-width:900px){.grid{grid-template-columns: 1.2fr .8fr}}
@@ -138,14 +187,21 @@
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="#positions">Positions</a>
-        <a href="#industry">Industry</a>
         <a href="#teaching">Teaching</a>
-        <a href="#funding">Funding & Awards</a>
-        <a href="#memberships">Memberships</a>
-        <a href="#training">Training</a>
-        <a href="#talks">Invited Talk</a>
         <a href="#research">Research & Publications</a>
         <a href="#education">Education</a>
+
+        <!-- Dropdown -->
+        <details class="dropdown">
+          <summary>More ▾</summary>
+          <div class="menu">
+            <a href="#industry">Industry</a>
+            <a href="#funding">Funding & Awards</a>
+            <a href="#memberships">Memberships</a>
+            <a href="#training">Training</a>
+            <a href="#talks">Invited Talk</a>
+          </div>
+        </details>
       </div>
     </nav>
 
@@ -312,12 +368,3 @@
   </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
