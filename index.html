@@ -16,37 +16,31 @@
       --shadow:0 6px 16px rgba(2,6,23,.06); --shadow-soft:0 2px 10px rgba(2,6,23,.05);
       --radius:18px; --nav-h:60px;
     }
+    /* Dark theme vars */
+    [data-theme="dark"]{
+      --bg:#0f172a; --surface:#1e293b; --card:#111827; --border:#1f2937;
+      --muted:#94a3b8; --text:#e5e7eb; --brand:#93c5fd; --brand-600:#60a5fa; --brand-50:#0b1220;
+      --chip:#122451; --chip-text:#e2e8f0; --link:#93c5fd;
+      --shadow:0 6px 16px rgba(0,0,0,.45); --shadow-soft:0 2px 10px rgba(0,0,0,.35);
+    }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){
-      html{scroll-behavior:auto}
-    }
+    @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
     html,body{
       margin:0; background:var(--bg); color:var(--text);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-
     a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
-
-    /* Accessible focus */
     :focus-visible{outline:3px solid #93c5fd; outline-offset:2px; border-radius:8px}
-
-    /* Skip link */
-    .skip-link{
-      position:absolute; left:-9999px; top:0; background:#111827; color:#fff; padding:8px 12px; border-radius:8px;
-    }
-    .skip-link:focus{left:12px; top:12px; z-index:9999}
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
     header{display:flex;gap:20px;align-items:center; padding:32px 0 8px}
 
-    .avatar{
-      width:96px;height:96px;border-radius:999px;overflow:hidden;
-      border:1px solid var(--border); box-shadow:var(--shadow-soft); flex:0 0 auto;background:#fff;
-    }
+    .avatar{width:96px;height:96px;border-radius:999px;overflow:hidden;border:1px solid var(--border); box-shadow:var(--shadow-soft); flex:0 0 auto;background:#fff}
+    [data-theme="dark"] .avatar{background:#0b1220}
     .avatar img{width:100%;height:100%;object-fit:cover}
 
     .title h1{margin:0;font-size:30px;letter-spacing:.2px}
@@ -67,35 +61,44 @@
       background:rgba(255,255,255,.88); backdrop-filter:blur(8px);
       border-bottom:1px solid var(--border);
     }
-    .nav{
-      display:flex; gap:10px; align-items:center; padding:10px 0; overflow-x:auto; scrollbar-width:none;
-    }
-    .nav::-webkit-scrollbar{display:none}
+    [data-theme="dark"] nav{background:rgba(15,23,42,.9)}
+    .nav{display:flex; gap:10px; align-items:center; padding:10px 0; overflow:visible} /* allow dropdown to overflow */
+    .links{display:flex; gap:10px; align-items:center; overflow-x:auto; scrollbar-width:none}
+    .links::-webkit-scrollbar{display:none}
     .nav a{
       white-space:nowrap; padding:8px 12px; border-radius:999px; font-size:14px;
       background:#f3f4f6; color:#111827; border:1px solid var(--border); box-shadow:var(--shadow-soft);
       transition:background .15s ease, color .15s ease, border-color .15s ease;
     }
+    [data-theme="dark"] .nav a{background:#0f172a; color:var(--text)}
     .nav a:hover{background:#e5e7eb; text-decoration:none}
+    [data-theme="dark"] .nav a:hover{background:#172033}
     .nav a.active{background:var(--brand-50); color:var(--brand); border-color:#c7d2fe}
+    [data-theme="dark"] .nav a.active{border-color:#334155}
 
-    /* Dropdown (accessible, CSS-only) */
-    .nav details.dropdown { position: relative; }
-    .nav details.dropdown > summary{
+    /* Dropdown */
+    details.dropdown{position:relative}
+    details.dropdown > summary{
       list-style:none; padding:8px 12px; background:var(--surface); color:var(--text);
       border:1px solid var(--border); border-radius:999px; cursor:pointer; box-shadow:var(--shadow-soft); user-select:none; font-size:14px;
     }
-    .nav details.dropdown > summary::-webkit-details-marker{display:none}
-    .nav details.dropdown[open] > summary{background:var(--chip); color:var(--chip-text)}
-    .nav details.dropdown .menu{
+    details.dropdown > summary::-webkit-details-marker{display:none}
+    details.dropdown[open] > summary{background:var(--chip); color:var(--chip-text)}
+    details.dropdown .menu{
       position:absolute; top:calc(100% + 8px); left:0; background:var(--card);
       border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);
-      min-width:220px; padding:6px; z-index:20;
+      min-width:220px; padding:6px; z-index:999;
     }
-    .nav details.dropdown .menu a{display:block; padding:8px 10px; border-radius:8px; color:var(--text)}
-    .nav details.dropdown .menu a:hover{background:var(--surface); text-decoration:none}
+    details.dropdown .menu a{display:block; padding:8px 10px; border-radius:8px; color:var(--text)}
+    details.dropdown .menu a:hover{background:var(--surface); text-decoration:none}
     @media (max-width:700px){
-      .nav details.dropdown .menu{position:static; box-shadow:none; border:0; padding:4px 0 0; min-width:0}
+      details.dropdown .menu{position:static; box-shadow:none; border:0; padding:4px 0 0; min-width:0}
+    }
+
+    /* Theme toggle button */
+    .theme-toggle{
+      margin-left:auto; padding:8px 12px; border-radius:10px; border:1px solid var(--border);
+      background:var(--surface); color:var(--text); cursor:pointer; font-weight:600; box-shadow:var(--shadow-soft);
     }
 
     .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
@@ -104,7 +107,7 @@
     section{
       background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
       padding:20px; box-shadow:var(--shadow);
-      scroll-margin-top: calc(var(--nav-h) + 16px); /* prevent header overlap on anchor jump */
+      scroll-margin-top: calc(var(--nav-h) + 16px);
     }
     h2{margin:0 0 12px;font-size:18px;color:var(--brand);letter-spacing:.3px}
 
@@ -121,27 +124,15 @@
 
     .cardlist{display:grid;gap:10px}
     .pub{padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff; box-shadow:var(--shadow-soft)}
+    [data-theme="dark"] .pub{background:#0f172a}
 
-    .pill{
-      display:inline-block;padding:6px 10px;border:1px solid var(--border);
-      border-radius:999px;color:var(--chip-text);margin:4px 6px 0 0;font-size:12px;background:var(--brand-50);
-    }
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border); border-radius:999px;color:var(--chip-text);margin:4px 6px 0 0;font-size:12px;background:var(--brand-50)}
 
     footer{color:#475569;text-align:center;padding:28px 0; border-top:1px solid var(--border); background:var(--surface); margin-top:10px}
-
-    /* Back to top */
-    #toTop{
-      position:fixed; right:18px; bottom:18px; opacity:0; pointer-events:none;
-      transition:opacity .2s ease, transform .2s ease; transform:translateY(8px);
-      background:var(--brand-600); color:#fff; border:none; border-radius:999px; padding:10px 14px; box-shadow:var(--shadow);
-      font-weight:700; cursor:pointer;
-    }
-    #toTop.show{opacity:1; pointer-events:auto; transform:translateY(0)}
+    [data-theme="dark"] footer{color:#94a3b8}
   </style>
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-
   <div class="wrap">
     <header>
       <div class="avatar" aria-hidden="true">
@@ -151,6 +142,7 @@
       <div class="title">
         <h1>Predaricka Deastra</h1>
         <p>B.Eng • M.Sc • AFHEA • Ph.D</p>
+
         <div class="chips">
           <span class="badge" title="Current Role">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
           <a class="btn" href="PDeastra_CV_Sep2025.pdf" download>↓ Download CV (PDF)</a>
@@ -160,24 +152,30 @@
   </div>
 
   <nav aria-label="Primary">
-    <div class="wrap nav" id="navbar">
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#positions">Positions</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#research">Research & Publications</a>
-      <a href="#education">Education</a>
+    <div class="wrap nav">
+      <div class="links" id="navbar">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#positions">Positions</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#research">Research & Publications</a>
+        <a href="#education">Education</a>
 
-      <details class="dropdown">
-        <summary aria-haspopup="menu" aria-expanded="false">More ▾</summary>
-        <div class="menu" role="menu">
-          <a href="#industry" role="menuitem">Industry</a>
-          <a href="#funding" role="menuitem">Funding & Awards</a>
-          <a href="#memberships" role="menuitem">Memberships</a>
-          <a href="#training" role="menuitem">Training</a>
-          <a href="#talks" role="menuitem">Invited Talk</a>
-        </div>
-      </details>
+        <!-- Dropdown -->
+        <details class="dropdown">
+          <summary aria-haspopup="menu" aria-expanded="false">More ▾</summary>
+          <div class="menu" role="menu">
+            <a href="#industry" role="menuitem">Industry</a>
+            <a href="#funding" role="menuitem">Funding & Awards</a>
+            <a href="#memberships" role="menuitem">Memberships</a>
+            <a href="#training" role="menuitem">Training</a>
+            <a href="#talks" role="menuitem">Invited Talk</a>
+          </div>
+        </details>
+      </div>
+
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeBtn" type="button">🌙 Dark</button>
     </div>
   </nav>
 
@@ -338,17 +336,35 @@
     </aside>
   </main>
 
-  <button id="toTop" aria-label="Back to top">↑ Top</button>
-
   <footer>
     © 2025 Predaricka Deastra • Built for GitHub Pages • Last updated Sep 2025
   </footer>
 
   <script>
-    // ----- Active nav highlighting (scrollspy)
+    // ---- Theme (persist + system preference) ----
+    const themeBtn = document.getElementById('themeBtn');
+    const root = document.documentElement;
+
+    function applyTheme(mode){
+      if(mode === 'dark'){ root.setAttribute('data-theme','dark'); themeBtn.textContent = '☀️ Light'; }
+      else { root.removeAttribute('data-theme'); themeBtn.textContent = '🌙 Dark'; }
+    }
+    // Load saved or system
+    const saved = localStorage.getItem('theme');
+    if(saved){ applyTheme(saved); }
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
+      applyTheme('dark');
+    }
+    themeBtn.addEventListener('click', () => {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem('theme', next);
+    });
+
+    // ---- Scrollspy (active link) ----
     const sections = [...document.querySelectorAll('main section, aside section')];
     const navLinks = [...document.querySelectorAll('#navbar a, .dropdown .menu a')];
-
     const byId = id => navLinks.find(a => a.getAttribute('href') === '#' + id);
 
     const io = new IntersectionObserver((entries) => {
@@ -363,16 +379,6 @@
     }, { rootMargin: "-40% 0px -50% 0px", threshold: 0.01 });
 
     sections.forEach(sec => io.observe(sec));
-
-    // ----- Back to top button
-    const toTop = document.getElementById('toTop');
-    const showTop = () => {
-      if (window.scrollY > 600) toTop.classList.add('show');
-      else toTop.classList.remove('show');
-    };
-    showTop();
-    window.addEventListener('scroll', showTop);
-    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   </script>
 </body>
 </html>
