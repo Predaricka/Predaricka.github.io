@@ -16,7 +16,6 @@
       --shadow:0 6px 16px rgba(2,6,23,.06); --shadow-soft:0 2px 10px rgba(2,6,23,.05);
       --radius:18px; --nav-h:60px;
     }
-    /* Dark theme vars */
     [data-theme="dark"]{
       --bg:#0f172a; --surface:#1e293b; --card:#111827; --border:#1f2937;
       --muted:#94a3b8; --text:#e5e7eb; --brand:#93c5fd; --brand-600:#60a5fa; --brand-50:#0b1220;
@@ -37,10 +36,7 @@
     :focus-visible{outline:3px solid #93c5fd; outline-offset:2px; border-radius:8px}
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
-    header{display: flex;
-  gap: 20px;
-  align-items: flex-start;   /* was center */
-  padding: 32px 0 8px;}
+    header{display: flex; gap: 20px; align-items: flex-start; padding: 32px 0 8px;}
 
     .avatar{width:96px;height:96px;border-radius:999px;overflow:hidden;border:1px solid var(--border); box-shadow:var(--shadow-soft); flex:0 0 auto;background:#fff}
     [data-theme="dark"] .avatar{background:#0b1220}
@@ -58,7 +54,6 @@
     .btn{background:linear-gradient(90deg,var(--brand-600),#22d3ee); border:none; color:#fff; font-weight:700}
     .btn:hover{filter:brightness(0.98); text-decoration:none}
 
-    /* NAV */
     nav{
       position:sticky; top:0; z-index:10; height:var(--nav-h);
       background:rgba(255,255,255,.88); backdrop-filter:blur(8px);
@@ -82,7 +77,6 @@
     .nav a.active{background:var(--brand-50); color:var(--brand); border-color:#c7d2fe}
     [data-theme="dark"] .nav a.active{border-color:#334155}
 
-    /* Dropdown */
     details.dropdown{position:relative}
     details.dropdown > summary{
       list-style:none; padding:8px 12px; background:var(--surface); color:var(--text);
@@ -101,7 +95,6 @@
       details.dropdown .menu{position:static; box-shadow:none; border:0; padding:4px 0 0; min-width:0}
     }
 
-    /* Theme toggle button */
     .theme-toggle{
       margin-left:auto; padding:8px 12px; border-radius:10px; border:1px solid var(--border);
       background:var(--surface); color:var(--text); cursor:pointer; font-weight:600; box-shadow:var(--shadow-soft);
@@ -120,10 +113,10 @@
     .kvs{display:grid;grid-template-columns: 130px 1fr;gap:10px;row-gap:8px}
     .muted{color:var(--muted)}
     ul{
-  margin: 8px 0 0;
-  padding-left: 20px;       /* consistent indent */
-  list-style-position: outside;
-}
+      margin: 8px 0 0;
+      padding-left: 20px;
+      list-style-position: outside;
+    }
     li{margin:6px 0}
 
     .rows>div{padding:10px 0;border-top:1px solid var(--border)}
@@ -155,7 +148,7 @@
 
         <div class="chips">
           <span class="badge" title="Current Role">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
-          <a class="btn" href="PDeastra_CV_Sep2025.pdf" download>↓ Download CV (PDF)</a>
+          <!-- CV button removed from here -->
         </div>
       </div>
     </header>
@@ -172,7 +165,6 @@
         <a href="#education">Education</a>
       </div>
 
-      <!-- Dropdown moved outside links -->
       <details class="dropdown" id="moreMenu">
         <summary aria-haspopup="menu" aria-expanded="false">More ▾</summary>
         <div class="menu" role="menu">
@@ -184,7 +176,6 @@
         </div>
       </details>
 
-      <!-- Theme toggle -->
       <button class="theme-toggle" id="themeBtn" type="button">🌙 Dark</button>
     </div>
   </nav>
@@ -210,7 +201,7 @@
             <div>Department of Structural, Geotechnical and Building Engineering (DISEG)</div>
           </div>
           <div style="margin-bottom:10px;">
-            <div><strong>Tohoku University, Japan</strong> <span class="muted">— 09/2023 – 04/2025</span></div>
+            <div><strong>Tohoku University, Japan</strong> <span class="muted">— 09/2023 – 04/2025; terminated early due to accepting the MSCA Postdoctoral Fellowship</span></div>
             <div>International Research Institute of Disaster Science (IRIDeS)</div>
           </div>
           <div style="margin-bottom:10px;">
@@ -264,7 +255,7 @@
         <h2>Professional Memberships & Certification</h2>
         <ul class="small">
           <li>EAEE (2024), SECED (2024), ASSISI (2024–2025), AIJ (2024–2025)</li>
-          <li><strong>AFHEA</strong> (08/2019) — Recognition ref: <span class="mono">PR172395</span></li>
+          <li>Associate Fellow of the Higher Education Academy (AFHEA) (08/2019) — Recognition ref: <span class="mono">PR172395</span></li>
         </ul>
       </section>
 
@@ -332,6 +323,8 @@
           <a class="badge" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
           <a class="badge" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener">ORCID</a>
           <a class="badge" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener">LinkedIn</a>
+          <!-- CV button moved here -->
+          <a class="btn" href="PDeastra_CV_Sep2025.pdf" download>↓ Download CV (PDF)</a>
         </div>
       </section>
 
@@ -351,10 +344,9 @@
   </footer>
 
   <script>
-    // ---- Theme (persist + system preference) ----
+    // Theme toggle
     const themeBtn = document.getElementById('themeBtn');
     const root = document.documentElement;
-
     function applyTheme(mode){
       if(mode === 'dark'){ root.setAttribute('data-theme','dark'); themeBtn.textContent = '☀️ Light'; }
       else { root.removeAttribute('data-theme'); themeBtn.textContent = '🌙 Dark'; }
@@ -371,11 +363,10 @@
       localStorage.setItem('theme', next);
     });
 
-    // ---- Scrollspy (active link) ----
+    // Scrollspy
     const sections = [...document.querySelectorAll('main section, aside section')];
     const navLinks = [...document.querySelectorAll('#navbar a, .dropdown .menu a')];
     const byId = id => navLinks.find(a => a.getAttribute('href') === '#' + id);
-
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const link = byId(entry.target.id);
@@ -386,10 +377,9 @@
         }
       });
     }, { rootMargin: "-40% 0px -50% 0px", threshold: 0.01 });
-
     sections.forEach(sec => io.observe(sec));
 
-    // ---- Close dropdown after click ----
+    // Close dropdown after click
     const moreMenu = document.getElementById('moreMenu');
     moreMenu?.querySelectorAll('.menu a').forEach(a => {
       a.addEventListener('click', () => { moreMenu.open = false; });
@@ -397,7 +387,3 @@
   </script>
 </body>
 </html>
-
-
-
-
