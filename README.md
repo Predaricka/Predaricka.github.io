@@ -282,7 +282,6 @@
             <div class="muted">Nationality</div><div>Indonesian</div>
           </div>
           <div class="contact" style="margin-top:10px">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
             <a href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
             <a href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener">ORCID</a>
             <a href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener">LinkedIn</a>
