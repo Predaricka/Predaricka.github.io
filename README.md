@@ -276,10 +276,7 @@
           <h2>Contact & Links</h2>
           <div class="kvs small">
             <div class="muted">Email</div><div><a href="mailto:predaricka.deastra@polito.it">predaricka.deastra@polito.it</a></div>
-            <div class="muted">Phone</div><div><a href="tel:+393514093062">+39 351 4093 062</a></div>
             <div class="muted">Address</div><div>DISEG, Politecnico di Torino, Corso Duca degli Abruzzi, 24, 10129 Torino, Italy</div>
-            <div class="muted">DOB</div><div>22 Aug 1991</div>
-            <div class="muted">Nationality</div><div>Indonesian</div>
           </div>
           <div class="contact" style="margin-top:10px">
             <a href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
