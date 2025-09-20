@@ -116,7 +116,11 @@
 
     .kvs{display:grid;grid-template-columns: 130px 1fr;gap:10px;row-gap:8px}
     .muted{color:var(--muted)}
-    ul{margin:8px 0 0 18px}
+    ul{
+  margin: 8px 0 0;
+  padding-left: 20px;       /* consistent indent */
+  list-style-position: outside;
+}
     li{margin:6px 0}
 
     .rows>div{padding:10px 0;border-top:1px solid var(--border)}
@@ -237,7 +241,7 @@
         </ul>
       </section>
 
-      <section id="funding" style="font-size:14px; line-height:1.6%;">
+      <section id="funding" style="font-size:14px; line-height:1.6;">
         <h2>Funding Awarded</h2>
         <ul>
           <li><strong>MSCA Postdoctoral Fellowship</strong> — EUR 188,590 <span class="muted">(05/2025–04/2027)</span></li>
@@ -261,7 +265,7 @@
         </ul>
       </section>
 
-      <section id="training" style="font-size:14px; line-height:1.6%;">
+      <section id="training" style="font-size:14px; line-height:1.6;">
         <h2>Training & Summer Schools</h2>
         <ul>
           <li>AI in Structural Engineering — ARTISTE 2025, Politecnico di Torino <span class="muted">18–20 Sep 2025</span></li>
@@ -269,7 +273,7 @@
         </ul>
       </section>
 
-      <section id="talks" style="font-size:14px; line-height:1.6%;">
+      <section id="talks" style="font-size:14px; line-height:1.6;">
         <h2>Invited Talk</h2>
         <div class="cardlist">
           <div class="pub small">
@@ -390,3 +394,4 @@
   </script>
 </body>
 </html>
+
