@@ -9,124 +9,125 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
-    /* ---------- Base Theme Variables ---------- */
-    :root {
-      --bg:#ffffff;
-      --surface:#f9fafb;
-      --card:#ffffff;
-      --border:#e5e7eb;
-      --muted:#6b7280;
-      --text:#0f172a;
-      --brand:#1e40af;
-      --brand-600:#2563eb;
-      --brand-50:#eef2ff;
-      --chip:#e5edff;
-      --chip-text:#1e3a8a;
-      --link:#1d4ed8;
+    :root{
+      /* Light theme palette */
+      --bg:#ffffff;           /* page background */
+      --surface:#f9fafb;      /* subtle section background */
+      --card:#ffffff;         /* cards/sections */
+      --border:#e5e7eb;       /* light border */
+      --muted:#6b7280;        /* secondary text */
+      --text:#0f172a;         /* main text */
+      --brand:#1e40af;        /* brand blue (indigo-900) */
+      --brand-600:#2563eb;    /* brighter blue for accents */
+      --brand-50:#eef2ff;     /* faint indigo background */
+      --chip:#e5edff;         /* chip bg (very light blue) */
+      --chip-text:#1e3a8a;    /* chip text (indigo-800) */
+      --link:#1d4ed8;         /* link color */
       --shadow:0 6px 16px rgba(2,6,23,.06);
       --shadow-soft:0 2px 10px rgba(2,6,23,.05);
       --radius:18px;
-    }
-
-    /* ---------- Dark Theme Variables ---------- */
-    [data-theme="dark"] {
-      --bg:#0f172a;
-      --surface:#1e293b;
-      --card:#111827;
-      --border:#1f2937;
-      --muted:#9ca3af;
-      --text:#e2e8f0;
-      --brand:#93c5fd;
-      --brand-600:#60a5fa;
-      --brand-50:#1e3a8a;
-      --chip:#1e3a8a;
-      --chip-text:#e0f2fe;
-      --link:#93c5fd;
-      --shadow:0 6px 16px rgba(0,0,0,.45);
-      --shadow-soft:0 2px 10px rgba(0,0,0,.35);
     }
 
     *{box-sizing:border-box}
     html,body{
       margin:0; background:var(--bg); color:var(--text);
       font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
+
     a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
     header{display:flex;gap:20px;align-items:center; padding:32px 0 8px}
+
     .avatar{
       width:96px;height:96px;border-radius:999px;overflow:hidden;
       border:1px solid var(--border); box-shadow:var(--shadow-soft); flex:0 0 auto;
+      background:#fff;
     }
     .avatar img{width:100%;height:100%;object-fit:cover}
+
     .title h1{margin:0;font-size:30px;letter-spacing:.2px}
     .title p{margin:6px 0 10px;color:var(--muted)}
 
     .chips{display:flex;flex-wrap:wrap;gap:10px}
     .badge,.btn{
       display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-      border:1px solid var(--border); background:var(--chip); color:var(--chip-text);
-      font-size:14px; text-decoration:none; box-shadow:var(--shadow-soft);
+      border:1px solid var(--border); background:var(--chip); color:var(--chip-text); font-size:14px; text-decoration:none;
+      box-shadow:var(--shadow-soft);
     }
     .btn{background:linear-gradient(90deg,var(--brand-600),#22d3ee); border:none; color:#fff; font-weight:700}
-    .btn:hover{filter:brightness(0.97); text-decoration:none}
+    .btn:hover{filter:brightness(0.98); text-decoration:none}
 
+    /* NAV */
     nav{
       position:sticky; top:0; z-index:10;
-      background:rgba(255,255,255,.85); backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(8px);
       border-bottom:1px solid var(--border);
     }
-    [data-theme="dark"] nav{background:rgba(15,23,42,.9)}
     .nav{display:flex;flex-wrap:wrap;gap:10px;padding:10px 0}
     .nav a{
       padding:8px 12px; border-radius:999px; font-size:14px;
-      background:var(--surface); color:var(--text); border:1px solid var(--border);
+      background:#f3f4f6; color:#111827; border:1px solid var(--border);
       box-shadow:var(--shadow-soft);
     }
-    .nav a:hover{background:var(--chip); text-decoration:none}
-
-    .theme-toggle{
-      margin-left:auto; padding:6px 10px; border-radius:8px;
-      background:var(--brand-600); color:#fff; cursor:pointer; border:none;
-      font-size:14px; font-weight:600; box-shadow:var(--shadow-soft);
-    }
+    .nav a:hover{background:#e5e7eb; text-decoration:none}
 
     .grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
     @media(min-width:900px){.grid{grid-template-columns: 1.2fr .8fr}}
 
     section{
-      background:var(--card); border:1px solid var(--border);
-      border-radius:var(--radius); padding:20px; box-shadow:var(--shadow);
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
     }
-    h2{margin:0 0 12px;font-size:18px;color:var(--brand);letter-spacing:.3px}
-    .muted{color:var(--muted)}
 
-    ul{margin:8px 0 0 18px} li{margin:6px 0}
+    h2{margin:0 0 12px;font-size:18px;color:var(--brand);letter-spacing:.3px}
+
+    .kvs{display:grid;grid-template-columns: 130px 1fr;gap:10px;row-gap:8px}
+    .muted{color:var(--muted)}
+    ul{margin:8px 0 0 18px}
+    li{margin:6px 0}
+
     .rows>div{padding:10px 0;border-top:1px solid var(--border)}
     .rows>div:first-child{border-top:none}
 
     .split{display:flex;justify-content:space-between;gap:12px}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px}
     .small{font-size:13px}
 
     .cardlist{display:grid;gap:10px}
-    .pub{padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface); box-shadow:var(--shadow-soft)}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);
-      border-radius:999px;color:var(--chip-text);margin:4px 6px 0 0;font-size:12px;background:var(--brand-50)}
-    footer{color:var(--muted);text-align:center;padding:28px 0; border-top:1px solid var(--border); background:var(--surface); margin-top:10px}
+    .pub{
+      padding:12px;border:1px solid var(--border);border-radius:12px;background:#fff; box-shadow:var(--shadow-soft);
+    }
+
+    .pill{
+      display:inline-block;padding:6px 10px;border:1px solid var(--border);
+      border-radius:999px;color:var(--chip-text);margin:4px 6px 0 0;font-size:12px;background:var(--brand-50);
+    }
+
+    footer{color:#475569;text-align:center;padding:28px 0; border-top:1px solid var(--border); background:var(--surface); margin-top:10px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="avatar"><img src="Predaricka.jpg" alt="Photo of Predaricka Deastra" /></div>
+      <!-- Your photo -->
+      <div class="avatar" aria-hidden="true">
+        <img src="Predaricka.jpg" alt="Photo of Predaricka Deastra" />
+      </div>
+
       <div class="title">
         <h1>Predaricka Deastra</h1>
         <p>B.Eng • M.Sc • AFHEA • Ph.D</p>
+
         <div class="chips">
-          <span class="badge">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
+          <span class="badge" title="Current Role">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
+          <!-- Downloadable CV button (PDF in repo root) -->
           <a class="btn" href="PDeastra_CV_Sep2025.pdf" download>↓ Download CV (PDF)</a>
         </div>
       </div>
@@ -145,24 +146,174 @@
         <a href="#talks">Invited Talk</a>
         <a href="#research">Research & Publications</a>
         <a href="#education">Education</a>
-        <button class="theme-toggle" id="themeBtn">🌙 Dark</button>
       </div>
     </nav>
 
     <main class="grid">
-      <!-- Example content -->
+      <!-- LEFT COLUMN -->
       <div>
         <section id="about">
           <h2>About</h2>
-          <p>I am currently a Marie Skłodowska-Curie Postdoctoral Fellow at Politecnico di Torino, leading the research project VIBRATIONCLEAR...</p>
-          <p>...More content here...</p>
+          <p>
+            I am currently a Marie Skłodowska-Curie Postdoctoral Fellow at Politecnico di Torino, 
+            leading the research project VIBRATIONCLEAR, which aims to protect buildings against earthquakes through the use of inerter-based vibrating barriers. 
+            I hold a BEng (2009–2013) and an MSc (2014–2015) in Civil and Structural Engineering, and completed my PhD at the University of Sheffield in 2021. 
+            Prior to my current position, I was a JSPS Postdoctoral Fellow at Tohoku University, Japan (2023-2025). 
+          </p>
+
+          <p>  
+            I also held a postdoctoral research fellowship at ETH Zürich, funded by the Swiss Government Excellence Scholarship (2022-2023), and served as a postdoctoral researcher at Dong-A University, South Korea (2022). 
+            My research focuses on structural dynamics and earthquake engineering. 
+            During my PhD studies, I conducted the world’s first shake-table experiment on a multi-storey structure equipped with an inerter-based damper system, carried out at the Structural Dynamics Laboratory for Verification and Validation (LVV) at the University of Sheffield. 
+            Since 2018, I have published extensively in reputable journals and conferences. 
+            One of my papers was recognized as a “Top Cited Article” in Earthquake Engineering and Structural Dynamics (EESD), published by Wiley.
+          </p>
+          <p class="small muted">
+            Interests: Structural Dynamics, vibration control, seismic isolation, soil–structure interaction,
+            finite elements, and AI in vibration engineering.
+          </p>
+        </section>
+
+        <section id="positions">
+          <h2>Current & Past Postdoctoral Positions</h2>
+          <div class="rows">
+            <div class="split">
+              <div><strong>Politecnico di Torino (Italy), DISEG</strong><br><span class="muted">05/2025 – Present</span></div>
+              <div>VIBRATIONCLEAR: Inerter-based vibrating barrier for clusters of buildings.</div>
+            </div>
+            <div class="split">
+              <div><strong>Tohoku University (Japan), IRIDeS</strong><br><span class="muted">09/2023 – 04/2025</span></div>
+              <div>Design strategy for inerter-based structural control considering non-linearity.</div>
+            </div>
+            <div class="split">
+              <div><strong>ETH Zürich (Switzerland), IBK</strong><br><span class="muted">12/2022 – 08/2023</span></div>
+              <div>Postdoctoral researcher in structural dynamics and control.</div>
+            </div>
+            <div class="split">
+              <div><strong>Dong-A University (South Korea)</strong><br><span class="muted">05/2022 – 11/2022</span></div>
+              <div>ERC for ICT Integrated Safe Ocean Smart Cities.</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="industry">
+          <h2>Industrial Experience</h2>
+          <ul>
+            <li>
+              <strong>Structural Engineer — PT LAPI Ganeshatama Consulting (Bandung)</strong>
+              <span class="muted">11/2015 – 08/2016</span><br>
+              Bridges & culverts (SAP2000, MIDAS Civil); SNI/ASCE/AASHTO; stakeholder coordination.
+            </li>
+          </ul>
+        </section>
+
+        <section id="teaching">
+          <h2>Teaching Experience</h2>
+          <ul>
+            <li><strong>Islamic University of Indonesia (UII)</strong> — Statics & Dynamics, Numerical Methods, Mechanics of Materials, Earthquake Engineering <span class="muted">(09/2021–08/2022)</span></li>
+            <li><strong>Sumatra Institute of Technology (ITERA)</strong> — Advanced Structural Analysis, Research Methods, Earthquake Engineering, Finite Element Method; Dept. Secretary <span class="muted">(02/2021–09/2021)</span></li>
+            <li><strong>University of Sheffield (MEE @ The Diamond)</strong> — GTA for labs/tutorials; supervision & feedback <span class="muted">(02/2018–11/2020)</span></li>
+          </ul>
+        </section>
+
+        <section id="funding">
+          <h2>Funding Awarded</h2>
+          <ul>
+            <li><strong>MSCA Postdoctoral Fellowship</strong> — EUR 188,590 <span class="muted">(05/2025–04/2027)</span></li>
+            <li><strong>JSPS Postdoctoral Fellowship</strong> — JPY 12,968,000 (~EUR 78,739) <span class="muted">(09/2023–04/2025)</span></li>
+            <li><strong>Swiss Government Excellence Scholarship</strong> — CHF 31,800 (~EUR 32,844) <span class="muted">(12/2022–08/2023)</span></li>
+          </ul>
+
+          <h2 style="margin-top:16px">Awards</h2>
+          <ul>
+            <li>Top cited article (2020–2021), <em>Earthquake Engineering & Structural Dynamics</em> <span class="muted">(04/2022)</span></li>
+            <li>Best presenter, ICDM 2020 <span class="muted">(10/2020)</span></li>
+            <li>Best graduating student, Univ. of Andalas <span class="muted">(02/2013)</span></li>
+          </ul>
+        </section>
+
+        <section id="memberships">
+          <h2>Professional Memberships & Certification</h2>
+          <ul class="small">
+            <li>EAEE (2024), SECED (2024), ASSISI (2024–2025), AIJ (2024–2025)</li>
+            <li><strong>AFHEA</strong> (08/2019) — Recognition ref: <span class="mono">PR172395</span></li>
+          </ul>
+        </section>
+
+        <section id="training">
+          <h2>Training & Summer Schools</h2>
+          <ul>
+            <li>AI in Structural Engineering — ARTISTE 2025, Politecnico di Torino <span class="muted">18–20 Sep 2025</span></li>
+            <li>ERC Starting Grant — Yellow Research <span class="muted">12–13 Jun 2025</span></li>
+          </ul>
+        </section>
+
+        <section id="talks">
+          <h2>Invited Talk</h2>
+          <div class="cardlist">
+            <div class="pub small">
+              <strong>“Passive vibration controls for buildings”</strong> — Webinar, Bandung Institute of Science and Technology <span class="muted">5 Dec 2023</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="research">
+          <h2>Research & Publications</h2>
+          <div class="small" style="display:flex;gap:16px;flex-wrap:wrap">
+            <div><strong>Google Scholar</strong>: h-index 7; citations 361</div>
+            <div><strong>Scopus</strong>: h-index 6; citations 292</div>
+          </div>
+
+          <h3 class="small" style="margin-top:12px">Selected Publications</h3>
+          <div class="cardlist small">
+            <div class="pub">
+              Deastra, P., Dogan, H., Xie, R., Ikago, K. (2025). <em>Shake table experimental validation of auxiliary mass effects in a tuned viscous mass damper</em>. <strong>Structures</strong>, 80, 109681. <a href="https://doi.org/10.1016/j.istruc.2025.109681" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <div class="pub">
+              Deastra, P., Wagg, D.J., Sims, N.D., Mills, R.S. (2023). <em>Experimental shake table validation of damping behaviour in inerter-based dampers</em>. <strong>Bulletin of Earthquake Engineering</strong> 21, 1389–1409. <a href="https://doi.org/10.1007/s10518-022-01376-1" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <div class="pub">
+              Deastra, P., Wagg, D.J., Sims, N.D., Akbar, M. (2020). <em>Tuned inerter dampers with linear hysteretic damping</em>. <strong>Earthquake Engineering & Structural Dynamics</strong>, 49(12), 1216–1235. <span style="color:#047857">Top cited 2020–2021</span>. <a href="https://doi.org/10.1002/eqe.3287" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <div class="pub">
+              De Domenico, D., Deastra, P., Ricciardi, G., Sims, N.D., Wagg, D.J. (2019). <em>Novel fluid inerter based TMDs for base-isolated buildings</em>. <strong>Journal of the Franklin Institute</strong>, 356(14), 7626–7649. <a href="https://doi.org/10.1016/j.jfranklin.2018.11.012" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <div class="pub">
+              Deastra, P., Wagg, D.J., Sims, N.D. (2019). <em>The Realisation of an Inerter-Based System Using Fluid Inerter</em>. In <strong>Dynamics of Civil Structures 2</strong>, 127–134. Springer. <a href="https://doi.org/10.1007/978-3-319-74421-6_16" target="_blank" rel="noopener">DOI</a>
+            </div>
+            <div class="pub">
+              Deastra, P., Wagg, D.J., Sims, N.D. (2020). <em>Optimum design of a TIhD for buildings under earthquake base excitations</em>. <strong>EURODYN 2020</strong>, 1501–1509. <a href="https://doi.org/10.47964/1120.9121.18630" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </div>
+
+          <p class="small" style="margin-top:10px">
+            Full list: <a href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar Profile</a>.
+          </p>
         </section>
       </div>
 
+      <!-- RIGHT COLUMN -->
       <aside>
         <section id="contact">
-          <h2>Contact</h2>
-          <p>Email: <a href="mailto:predaricka.deastra@polito.it">predaricka.deastra@polito.it</a></p>
+          <h2>Contact & Links</h2>
+          <div class="kvs small">
+            <div class="muted">Email</div><div><a href="mailto:predaricka.deastra@polito.it">predaricka.deastra@polito.it</a></div>
+            <div class="muted">Address</div><div>DISEG, Politecnico di Torino, Corso Duca degli Abruzzi, 24, 10129 Torino, Italy</div>
+          </div>
+          <div class="chips" style="margin-top:10px">
+            <a class="badge" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="badge" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener">ORCID</a>
+            <a class="badge" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+
+        <section id="education">
+          <h2>Education</h2>
+          <ul class="small">
+            <li><strong>Ph.D., Structural Dynamics</strong> — University of Sheffield, UK (2016–2021). Thesis: “Tuned Inerter Based Dampers with Linear Hysteretic Damping for Earthquake Protection of Building Structures”; Supervisors: Prof. David J. Wagg, Prof. Neil D. Sims.</li>
+            <li><strong>M.Sc., Structural Engineering</strong> — University of Manchester, UK (2014–2015). Dissertation: “Numerical Analysis of Rocker Bearing Seismic Isolation”.</li>
+            <li><strong>B.Eng., Civil Engineering</strong> — University of Andalas, Indonesia (2009–2013). Project: “Seismic performance of a hospital building with base isolation”.</li>
+          </ul>
         </section>
       </aside>
     </main>
@@ -171,25 +322,5 @@
       © 2025 Predaricka Deastra • Built for GitHub Pages • Last updated Sep 2025
     </footer>
   </div>
-
-  <script>
-    // Apply system preference on load
-    if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches){
-      document.documentElement.setAttribute('data-theme','dark');
-      document.getElementById("themeBtn").textContent = "☀️ Light";
-    }
-
-    // Toggle button
-    document.getElementById("themeBtn").addEventListener("click", function(){
-      let current = document.documentElement.getAttribute('data-theme');
-      if(current === "dark"){
-        document.documentElement.removeAttribute('data-theme');
-        this.textContent = "🌙 Dark";
-      } else {
-        document.documentElement.setAttribute('data-theme','dark');
-        this.textContent = "☀️ Light";
-      }
-    });
-  </script>
 </body>
 </html>
