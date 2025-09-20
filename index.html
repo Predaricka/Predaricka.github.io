@@ -9,11 +9,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --bg:#0f172a; --card:#111827; --muted:#9ca3af; --text:#e5e7eb; --brand:#60a5fa; --chip:#1f2937; --link:#93c5fd;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(180deg,#0b1220, #0f172a 35%, #0b1220); color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+   :root{
+  --bg:#ffffff;        /* page background */
+  --card:#f9fafb;      /* section cards */
+  --muted:#6b7280;     /* gray text */
+  --text:#111827;      /* main text (black-ish) */
+  --brand:#2563eb;     /* accent blue */
+  --chip:#e5e7eb;      /* pill backgrounds */
+  --link:#1d4ed8;      /* link color */
+}
+html,body{
+  margin:0;
+  background:var(--bg);  /* plain white background */
+  color:var(--text);
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
     a{color:var(--link); text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1000px;margin:0 auto;padding:24px}
     header{display:flex;gap:20px;align-items:center; padding:32px 0 8px}
@@ -265,6 +275,7 @@
   </div>
 </body>
 </html>
+
 
 
 
