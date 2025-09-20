@@ -10,9 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* Brand fills for icon circles */
-.brand-scopus{ fill:#EF6C00; }   /* Elsevier/Scopus orange */
-.icon-white{ fill:#fff; }        /* already used by ORCID/LinkedIn */
     :root{
       --bg:#ffffff; --surface:#f9fafb; --card:#ffffff; --border:#e5e7eb;
       --muted:#6b7280; --text:#0f172a; --brand:#1e40af; --brand-600:#2563eb; --brand-50:#eef2ff;
@@ -55,7 +52,7 @@
       box-shadow:var(--shadow-soft);
     }
 
-    /* Icon badges (icon-only) */
+    /* Icon badges */
     .badge{
       display:inline-flex;align-items:center;justify-content:center;
       width:40px;height:40px;border-radius:999px;
@@ -64,13 +61,13 @@
     }
     [data-theme="dark"] .badge{color:#e5e7eb}
     .badge:hover{background:var(--brand-50); text-decoration:none}
-    .badge svg{width:18px;height:18px;display:inline-block}
+    .badge svg{width:18px;height:18px}
 
-    /* Stroke (outline) icons */
+    /* Icon styles */
     .icon--stroke{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-    /* Filled circle icons (ORCID, LinkedIn) with white glyphs for contrast */
     .icon-circle{fill:currentColor}
     .icon-white{fill:#fff}
+    .brand-scopus{fill:#EF6C00}
 
     /* NAV */
     nav{
@@ -126,14 +123,17 @@
       scroll-margin-top: calc(var(--nav-h) + 16px);
     }
     h2{margin:0 0 12px;font-size:18px;color:var(--brand);letter-spacing:.3px}
+
     .kvs{display:grid;grid-template-columns: 130px 1fr;gap:10px;row-gap:8px}
     .muted{color:var(--muted)}
     ul{margin:8px 0 0; padding-left:20px; list-style-position:outside}
-    li{margin:6px 0}
-    .small{font-size:13px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px}
+    li{margin:6px 0; line-height:1.6}
+
     .rows>div{padding:10px 0;border-top:1px solid var(--border)}
     .rows>div:first-child{border-top:none}
+
+    .small{font-size:13px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:13px}
 
     footer{color:#475569;text-align:center;padding:28px 0; border-top:1px solid var(--border); background:var(--surface); margin-top:10px}
     [data-theme="dark"] footer{color:#94a3b8}
@@ -239,7 +239,7 @@
       </section>
 
       <!-- TEACHING -->
-      <section id="teaching" style="font-size:14px; line-height:1.6%;">
+      <section id="teaching" style="font-size:14px; line-height:1.6;">
         <h2>Teaching Experience</h2>
         <ul>
           <li><strong>Islamic University of Indonesia (UII)</strong> — Statics & Dynamics, Numerical Methods, Mechanics of Materials, Earthquake Engineering <span class="muted">(09/2021–08/2022)</span></li>
@@ -249,7 +249,7 @@
       </section>
 
       <!-- FUNDING & AWARDS -->
-      <section id="funding" style="font-size:14px; line-height:1.6%;">
+      <section id="funding" style="font-size:14px; line-height:1.6;">
         <h2>Funding Awarded</h2>
         <ul>
           <li><strong>MSCA Postdoctoral Fellowship</strong> — EUR 188,590 <span class="muted">(05/2025–04/2027)</span></li>
@@ -266,7 +266,7 @@
       </section>
 
       <!-- MEMBERSHIPS -->
-      <section id="memberships" style="font-size:14px; line-height:1.6%;">
+      <section id="memberships" style="font-size:14px; line-height:1.6;">
         <h2>Professional Memberships & Certification</h2>
         <ul class="small">
           <li>EAEE (2024), SECED (2024), ASSISI (2024–2025), AIJ (2024–2025)</li>
@@ -275,7 +275,7 @@
       </section>
 
       <!-- TRAINING -->
-      <section id="training" style="font-size:14px; line-height:1.6%;">
+      <section id="training" style="font-size:14px; line-height:1.6;">
         <h2>Training & Summer Schools</h2>
         <ul>
           <li>AI in Structural Engineering — ARTISTE 2025, Politecnico di Torino <span class="muted">18–20 Sep 2025</span></li>
@@ -284,7 +284,7 @@
       </section>
 
       <!-- INVITED TALK -->
-      <section id="talks" style="font-size:14px; line-height:1.6%;">
+      <section id="talks" style="font-size:14px; line-height:1.6;">
         <h2>Invited Talk</h2>
         <div class="cardlist">
           <div class="pub small">
@@ -341,7 +341,7 @@
           <div>DISEG, Politecnico di Torino, Corso Duca degli Abruzzi, 24, 10129 Torino, Italy</div>
         </div>
 
-        <!-- Icon-only badges (match your screenshot style) -->
+        <!-- Icon-only badges -->
         <div class="chips" style="margin-top:10px">
           <!-- CV / File -->
           <a class="badge" href="PDeastra_CV_Sep2025.pdf" download title="Download CV" aria-label="Download CV">
@@ -350,41 +350,57 @@
               <polyline points="14 2 14 6 18 6"/>
             </svg>
           </a>
-          
-          <a class="badge"
-   href="https://www.scopus.com/authid/detail.uri?authorId=57202363094"
-   target="_blank" rel="noopener"
-   title="Scopus" aria-label="Scopus">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <circle class="icon-circle brand-scopus" cx="12" cy="12" r="10"/>
-    <!-- Simple, crisp “S” inside the circle -->
-    <text x="12" y="16" font-size="12" font-weight="700"
-          text-anchor="middle" class="icon-white">S</text>
-  </svg>
-</a>
-          <!-- Google Scholar (graduation cap) -->
+          <!-- Email -->
+          <a class="badge" href="mailto:predaricka.deastra@polito.it" title="Email" aria-label="Email">
+            <svg class="icon--stroke" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" rx="2" ry="2"/>
+              <polyline points="3,7 12,13 21,7"/>
+            </svg>
+          </a>
+          <!-- Link (homepage) -->
+          <a class="badge" href="./" title="Website" aria-label="Website">
+            <svg class="icon--stroke" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 1 7.54-.46l.92.92a5 5 0 0 1 0 7.07 5 5 0 0 1-7.07 0l-.92-.92"/>
+              <path d="M14 11a5 5 0 0 0-7.54.46l-.92.92a5 5 0 0 0 0 7.07 5 5 0 0 0 7.07 0l.92-.92"/>
+            </svg>
+          </a>
+          <!-- Google Scholar (cap) -->
           <a class="badge" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
             <svg class="icon--stroke" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M22 9 12 5 2 9l10 4 10-4z"/>
               <path d="M6 12v3a6 3 0 0 0 12 0v-3"/>
             </svg>
           </a>
-          <!-- ResearchGate (RG monogram) -->
+          <!-- ResearchGate (RʳG monogram like sample) -->
           <a class="badge" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
             <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="18" rx="9" ry="9" fill="none"/>
-              <!-- Use vector text-like paths for crisp letters -->
-              <path fill="currentColor" d="M7.8 16.5V7.6h3.4c1.2 0 2 .3 2.6.8.6.6.9 1.3.9 2.3 0 1.1-.3 1.9-.9 2.4-.6.6-1.5.9-2.8.9H9.6v2.5H7.8zm1.8-4h1.6c.7 0 1.2-.1 1.6-.4.3-.3.5-.7.5-1.3s-.2-1-.5-1.3c-.3-.3-.8-.4-1.5-.4H9.6v3.4z"/>
-              <path fill="currentColor" d="M16 12.4c.4 0 .8.1 1.1.4.3.3.5.7.5 1.2v2.5h-1.6V14c0-.2-.1-.3-.2-.4-.1-.1-.3-.2-.5-.2-.3 0-.6.1-.8.3v2.7H13v-4.1h1.6v.5c.3-.4.8-.7 1.4-.7z"/>
+              <!-- The letters are vector-like via text; serif matches sample -->
+              <text x="8.5" y="16.5" font-size="10.8" font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="currentColor">R</text>
+              <text x="13.7" y="11.2" font-size="7.2" font-family="Georgia, 'Times New Roman', serif" font-weight="700" fill="currentColor">G</text>
             </svg>
           </a>
-          <!-- LinkedIn (filled circle + “in”) -->
+          <!-- ORCID (filled circle iD) -->
+          <a class="badge" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="icon-circle" cx="12" cy="12" r="10"/>
+              <path class="icon-white" d="M8.1 7.4h1.7v9.2H8.1V7.4zm4.1 0a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2zm0 1.7a2.9 2.9 0 1 0 0 5.8 2.9 2.9 0 0 0 0-5.8z"/>
+              <text x="12.1" y="16.6" font-size="5.4" font-weight="700" text-anchor="middle" class="icon-white">iD</text>
+            </svg>
+          </a>
+          <!-- LinkedIn (filled circle in) -->
           <a class="badge" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle class="icon-circle" cx="12" cy="12" r="10"/>
               <rect class="icon-white" x="7.2" y="9.8" width="2.1" height="7.1" rx=".4"/>
               <circle class="icon-white" cx="8.2" cy="7.4" r="1.1"/>
               <path class="icon-white" d="M12 9.8h2v1c.4-.7 1.1-1.2 2.3-1.2 1.7 0 2.7 1 2.7 3v4.3h-2.1v-3.8c0-1-.4-1.6-1.3-1.6s-1.4.6-1.4 1.6v3.8H12v-7.1z"/>
+            </svg>
+          </a>
+          <!-- Scopus (orange circle S) -->
+          <a class="badge" href="https://www.scopus.com/authid/detail.uri?authorId=57202363094" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle class="icon-circle brand-scopus" cx="12" cy="12" r="10"/>
+              <text x="12" y="16" font-size="12" font-weight="700" text-anchor="middle" class="icon-white" font-family="Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif">S</text>
             </svg>
           </a>
         </div>
@@ -452,4 +468,3 @@
   </script>
 </body>
 </html>
-
