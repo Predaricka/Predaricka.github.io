@@ -8,47 +8,104 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<script defer src="scripts.js"></script>
 
-<!-- Minimal overrides to fix font sizes & spacing -->
 <style>
-  :root { --text:#111827; }
-
-  html, body {
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;            /* smaller base font */
-    line-height: 1.6;           /* comfortable line spacing */
-    color: var(--text);
+  :root{
+    --bg:#ffffff; --surface:#f8fafc; --card:#ffffff; --border:#e5e7eb;
+    --muted:#6b7280; --text:#111827; --brand:#1e40af; --brand50:#eef2ff;
+    --shadow:0 6px 16px rgba(2,6,23,.06);
+    --radius:16px;
   }
 
-  /* Headings */
-  h1 { font-size: 28px; margin: 0 0 6px; }
-  h2 { font-size: 18px; margin: 0 0 10px; color: #1e40af; }
-
-  /* Default text elements */
-  p, li, div, span { font-size: 14px; line-height: 1.6; }
-  .small { font-size: 12.5px; }
-
-  /* Header spacing & icon row */
-  .badges { margin-top: 6px; }
-  .links-row {
-    margin-top: 14px;             /* space between MSCA badge and icons */
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
+  /* Base */
+  html, body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-size:14px;                 /* comfortable small base */
+    line-height:1.6;
   }
-  .icon svg { width: 22px; height: 22px; display: block; }
+  a{color:#1d4ed8; text-decoration:none}
+  a:hover{text-decoration:underline}
 
-  /* Card list spacing */
-  .card ul { margin: 8px 0 0 18px; padding: 0; }
-  .card li { margin: 8px 0; }
+  .wrap{max-width:1000px; margin:0 auto; padding:24px}
 
-  /* Avatar/title layout stays aligned to the left */
-  header.site { display: flex; gap: 20px; align-items: flex-start; padding: 32px 0 8px; }
-  .avatar { width: 96px; height: 96px; border-radius: 999px; overflow: hidden; border: 1px solid #e5e7eb; background: #fff; flex: 0 0 auto; }
-  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  /* Header — centered stack */
+  header.site{
+    display:flex;
+    flex-direction:column;          /* stack vertically */
+    align-items:center;             /* center horizontally */
+    text-align:center;
+    padding:40px 0 18px;
+    gap:14px;                       /* space between blocks */
+  }
+  .avatar{
+    width:120px; height:120px; border-radius:999px; overflow:hidden;
+    border:1px solid var(--border); background:#fff; box-shadow:var(--shadow);
+  }
+  .avatar img{width:100%; height:100%; object-fit:cover}
+  .title h1{margin:0; font-size:32px; letter-spacing:.3px}
+  .title p{margin:6px 0 0; color:var(--muted)}
+
+  /* Fellowship badge */
+  .badges{margin-top:10px}
+  .badge{
+    display:inline-block; padding:10px 16px; border-radius:999px;
+    background:var(--brand50); color:#1f2937; border:1px solid var(--border);
+    box-shadow:var(--shadow);
+  }
+
+  /* Icon row */
+  .links-row{
+    margin-top:18px;                /* space under badge */
+    display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+  }
+  .icon{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:44px; height:44px; border-radius:999px; background:#fff;
+    border:1px solid var(--border); box-shadow:var(--shadow);
+  }
+  .icon:hover{transform:translateY(-1px)}
+  .icon svg{width:22px; height:22px; display:block}
+
+  /* Nav — centered pills */
+  nav.site{
+    position:sticky; top:0; z-index:5;
+    background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
+    border-top:1px solid var(--surface); border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    display:flex; justify-content:center; gap:14px; flex-wrap:wrap; padding:12px 0;
+  }
+  .nav-inner a{
+    display:inline-block; padding:10px 18px; border-radius:999px;
+    background:#f3f4f6; color:#0f172a; border:1px solid var(--border);
+  }
+  .nav-inner a:hover{background:#e5e7eb; text-decoration:none}
+
+  /* Cards / sections */
+  main.wrap{padding-top:20px}
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:20px; box-shadow:var(--shadow); margin-bottom:16px;
+  }
+  h2{margin:0 0 10px; font-size:18px; color:var(--brand)}
+  .card ul{margin:8px 0 0 18px; padding:0}
+  .card li{margin:10px 0}
+  .small{font-size:12.5px; color:#374151}
+
+  /* Footer */
+  footer.site{
+    text-align:center; color:#64748b; padding:28px 0; border-top:1px solid var(--border);
+    background:var(--surface); margin-top:10px;
+  }
+
+  /* Responsive tweak */
+  @media (max-width:560px){
+    .title h1{font-size:28px}
+    .avatar{width:104px; height:104px}
+  }
 </style>
 </head>
 <body>
@@ -64,20 +121,25 @@
           <span class="badge">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
         </div>
 
+        <!-- Icons row -->
         <div class="links-row" aria-label="External profiles">
-          <!-- LinkedIn -->
+          <!-- LinkedIn (official blue tile + white “in”) -->
           <a class="icon" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M6.94 8.67V19H4.35V8.67h2.59zM5.65 6.84a1.51 1.51 0 1 1 0-3.02 1.51 1.51 0 0 1 0 3.02zM19.65 19h-2.58v-5.13c0-1.22-.44-2.05-1.55-2.05-.85 0-1.35.57-1.57 1.13-.08.2-.1.48-.1.76V19h-2.58s.03-8.67 0-9.57h2.58v1.36c.34-.53.96-1.28 2.33-1.28 1.7 0 2.97 1.11 2.97 3.49V19z"/></svg>
-          </a>
-
-          <!-- Google Scholar -->
-          <a class="icon" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 9 12 5 2 9l10 4 10-4z"/><path d="M6 12v3a6 3 0 0 0 12 0v-3"/>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="24" height="24" rx="4" fill="#0A66C2"/>
+              <path fill="#fff" d="M6.94 8.67V19H4.35V8.67h2.59zM5.65 6.84a1.51 1.51 0 1 1 0-3.02 1.51 1.51 0 0 1 0 3.02zM19.65 19h-2.58v-5.13c0-1.22-.44-2.05-1.55-2.05-.85 0-1.35.57-1.57 1.13-.08.2-.1.48-.1.76V19h-2.58s.03-8.67 0-9.57h2.58v1.36c.34-.53.96-1.28 2.33-1.28 1.7 0 2.97 1.11 2.97 3.49V19z"/>
             </svg>
           </a>
 
-          <!-- ORCID -->
+          <!-- Google Scholar (hat + journal) -->
+          <a class="icon" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 9 12 5 2 9l10 4 10-4z"/>
+              <path d="M6 12v3a6 3 0 0 0 12 0v-3"/>
+            </svg>
+          </a>
+
+          <!-- ORCID (green circle + iD) -->
           <a class="icon" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#A6CE39"/>
@@ -85,7 +147,7 @@
             </svg>
           </a>
 
-          <!-- ResearchGate -->
+          <!-- ResearchGate (teal circle + RG) -->
           <a class="icon" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#00CCBB"/>
@@ -94,7 +156,7 @@
             </svg>
           </a>
 
-          <!-- Scopus -->
+          <!-- Scopus (orange circle + S) -->
           <a class="icon" href="https://www.scopus.com/authid/detail.uri?authorId=57202363094" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#EF6C00"/>
@@ -102,9 +164,9 @@
             </svg>
           </a>
 
-          <!-- CV -->
+          <!-- CV (download) -->
           <a class="icon" href="PDeastra_CV_Sep2025.pdf" download title="Download CV" aria-label="CV">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/>
             </svg>
           </a>
@@ -113,6 +175,7 @@
     </header>
   </div>
 
+  <!-- Centered pill nav -->
   <nav class="site" aria-label="Primary">
     <div class="wrap nav-inner">
       <a href="index.html">Home</a>
