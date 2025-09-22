@@ -4,251 +4,48 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Predaricka Deastra — Home</title>
-<meta name="description" content="Predaricka Deastra — Structural Dynamics & Earthquake Engineering" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
-
-<style>
-  :root{
-    --bg:#ffffff; --surface:#f8fafc; --card:#ffffff; --border:#e5e7eb;
-    --muted:#6b7280; --text:#111827; --brand:#1e40af; --brand50:#eef2ff;
-    --shadow:0 6px 16px rgba(2,6,23,.06);
-    --radius:16px;
-  }
-
-  /* Base */
-  html, body{
-    margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    font-size:14px;
-    line-height:1.6;
-  }
-  a{color:#1d4ed8; text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  .wrap{max-width:1000px; margin:0 auto; padding:24px}
-
-  /* Header — centered stack */
-  header.site{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding:40px 0 18px;
-    gap:14px;
-  }
-  .avatar{
-    width:120px; height:120px; border-radius:999px; overflow:hidden;
-    border:1px solid var(--border); background:#fff; box-shadow:var(--shadow);
-  }
-  .avatar img{width:100%; height:100%; object-fit:cover}
-  .title h1{margin:0; font-size:32px; letter-spacing:.3px}
-  .title p{margin:6px 0 0; color:var(--muted)}
-
-  /* Fellowship badge */
-  .badges{margin-top:10px}
-  .badge{
-    display:inline-block; padding:10px 16px; border-radius:999px;
-    background:var(--brand50); color:#1f2937; border:1px solid var(--border);
-    box-shadow:var(--shadow);
-  }
-
-  /* Icon row */
-  .links-row{
-    margin-top:18px;
-    display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
-  }
-  .icon{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:44px; height:44px; border-radius:999px; background:#fff;
-    border:1px solid var(--border); box-shadow:var(--shadow);
-  }
-  .icon:hover{transform:translateY(-1px)}
-  .icon svg{width:22px; height:22px; display:block}
-
-  /* Nav — centered pills */
-  nav.site{
-    position:sticky; top:0; z-index:5;
-    background:rgba(255,255,255,.92); backdrop-filter:blur(8px);
-    border-top:1px solid var(--surface); border-bottom:1px solid var(--border);
-  }
-  .nav-inner{
-    display:flex; justify-content:center; gap:14px; flex-wrap:wrap; padding:12px 0;
-  }
-  .nav-inner a{
-    display:inline-block; padding:10px 18px; border-radius:999px;
-    background:#f3f4f6; color:#0f172a; border:1px solid var(--border);
-  }
-  .nav-inner a:hover{background:#e5e7eb; text-decoration:none}
-
-  /* Sections / cards */
-  main.wrap{padding-top:32px;}                /* extra space under nav */
-  .card{
-    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-    padding:24px; box-shadow:var(--shadow); margin-bottom:32px; /* bigger gap between sections */
-  }
-  h2{margin:0 0 10px; font-size:18px; color:var(--brand)}
-  .card ul{margin:8px 0 0 18px; padding:0}
-  .card li{margin:10px 0}
-  .small{font-size:12.5px; color:#374151}
-
-  /* Footer */
-  footer.site{
-    text-align:center; color:#64748b; padding:28px 0; border-top:1px solid var(--border);
-    background:var(--surface); margin-top:10px;
-  }
-
-  /* Responsive tweak */
-  @media (max-width:560px){
-    .title h1{font-size:28px}
-    .avatar{width:104px; height:104px}
-  }
-</style>
+<link rel="stylesheet" href="styles.css" />
+<script defer src="scripts.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header class="site">
-      <div class="avatar"><img src="Predaricka.jpg" alt="Photo of Predaricka Deastra" /></div>
+  <div class="page">
+    <div id="sidebar-root" class="sidebar"></div>
 
-      <div class="title">
-        <h1>Predaricka Deastra</h1>
-        <p>B.Eng • M.Sc • AFHEA • Ph.D</p>
-
-        <div class="badges">
-          <span class="badge">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
+    <main class="main">
+      <section class="section">
+        <div class="card">
+          <h2>About</h2>
+          <p>Structural Dynamics specialist with combined academic and industrial experience, and recipient of three globally prestigious research fellowships: the MSCA (EU), the JSPS (Japan), and the Swiss Government Excellence Scholarship. Proven track record in securing competitive funding (>£250k), publishing peer-reviewed papers, and leading international collaborations across Europe and Asia.</p>
         </div>
+      </section>
 
-        <!-- Icons row -->
-        <div class="links-row" aria-label="External profiles">
-          <!-- LinkedIn -->
-          <a class="icon" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect width="24" height="24" rx="4" fill="#0A66C2"/>
-              <path fill="#fff" d="M6.94 8.67V19H4.35V8.67h2.59zM5.65 6.84a1.51 1.51 0 1 1 0-3.02 1.51 1.51 0 0 1 0 3.02zM19.65 19h-2.58v-5.13c0-1.22-.44-2.05-1.55-2.05-.85 0-1.35.57-1.57 1.13-.08.2-.1.48-.1.76V19h-2.58s.03-8.67 0-9.57h2.58v1.36c.34-.53.96-1.28 2.33-1.28 1.7 0 2.97 1.11 2.97 3.49V19z"/>
-            </svg>
-          </a>
-
-          <!-- Google Scholar -->
-          <a class="icon" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M22 9 12 5 2 9l10 4 10-4z"/>
-              <path d="M6 12v3a6 3 0 0 0 12 0v-3"/>
-            </svg>
-          </a>
-
-          <!-- ORCID -->
-          <a class="icon" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="#A6CE39"/>
-              <text x="12" y="16.2" font-size="7" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">iD</text>
-            </svg>
-          </a>
-
-          <!-- ResearchGate -->
-          <a class="icon" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="#00CCBB"/>
-              <text x="12" y="16" font-size="9" font-weight="700" text-anchor="middle" fill="#fff"
-                    font-family="Inter, system-ui, Arial, Helvetica, sans-serif">RG</text>
-            </svg>
-          </a>
-
-          <!-- Scopus -->
-          <a class="icon" href="https://www.scopus.com/authid/detail.uri?authorId=57202363094" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" fill="#EF6C00"/>
-              <text x="12" y="16" font-size="9" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">S</text>
-            </svg>
-          </a>
-
-          <!-- CV -->
-          <a class="icon" href="PDeastra_CV_Sep2025.pdf" download title="Download CV" aria-label="CV">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/>
-            </svg>
-          </a>
+      <section class="section">
+        <div class="card">
+          <h2>Education</h2>
+          <ul>
+            <li><strong>PhD, Structural Dynamics</strong> — University of Sheffield (2021)</li>
+            <li><strong>MSc, Structural Engineering</strong> — University of Manchester (2015)</li>
+            <li><strong>BEng, Civil Engineering</strong> — University of Andalas (2013)</li>
+          </ul>
         </div>
-      </div>
-    </header>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <h2>Academic Positions</h2>
+          <ul>
+            <li><strong>MSCA Postdoctoral Fellow</strong> — Politecnico di Torino (2025–present)</li>
+            <li><strong>JSPS Postdoctoral Fellow</strong> — Tohoku University (2023–2025)</li>
+            <li><strong>Swiss Excellence Scholar</strong> — ETH Zürich (2022–2023)</li>
+            <li><strong>Postdoc Researcher</strong> — Dong-A University (2022)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
   </div>
-
-  <!-- Centered pill nav -->
-  <nav class="site" aria-label="Primary">
-    <div class="wrap nav-inner">
-      <a href="index.html">Home</a>
-      <a href="publications.html">Publications</a>
-      <a href="awards.html">Funding & Awards</a>
-      <a href="recent.html">Recent highlights</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
-  <!-- SINGLE MAIN WRAPPER -->
-  <main class="wrap">
-    <section class="card">
-      <h2>About</h2>
-      <p>
-        Structural Dynamics specialist with combined academic and industrial experience, and recipient of three globally prestigious research fellowships:
-        the Marie Skłodowska-Curie Actions (MSCA, ~12% acceptance), the JSPS Fellowship (Japan, ~10%), and the Swiss Government Excellence Scholarship (SGES).
-        Proven track record in securing competitive research funding of total more than £250,000, producing peer-reviewed publications, and leading international collaborations across Europe and Asia.
-        Research interests include structural dynamics, vibration control (passive, semi-active and active), soil–structure interaction, finite element analysis, and the integration of artificial intelligence in vibration engineering.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>Education</h2>
-      <ul>
-        <li>
-          <strong>Ph.D in Structural Dynamics</strong> — The University of Sheffield, UK — <span>(2021)</span><br/>
-          <span class="small">Department of Mechanical Engineering</span><br/>
-          <span class="small">Ph.D Thesis: “Tuned Inerter Based Dampers with Linear Hysteretic Damping for Earthquake Protection of Building Structures”.</span>
-        </li>
-        <li>
-          <strong>M.Sc in Structural Engineering</strong> — The University of Manchester, UK — <span>(2015)</span><br/>
-          <span class="small">School of Mechanical, Aerospace and Civil Engineering</span><br/>
-          <span class="small">M.Sc Dissertation: “Numerical Analysis of Rocker Bearing Seismic Isolation”.</span>
-        </li>
-        <li>
-          <strong>B.Eng in Civil Engineering</strong> — University of Andalas, Indonesia — <span>(2013)</span><br/>
-          <span class="small">Department of Civil Engineering</span><br/>
-          <span class="small">B.Eng. Final project: “Seismic performance of a hospital building equipped with base isolation”.</span>
-        </li>
-      </ul>
-    </section>
-
-    <section class="card">
-      <h2>Academic Positions</h2>
-      <ul>
-        <li>
-          <strong>Postdoctoral Fellow</strong>, Politecnico di Torino, Italy — <span class="small">(05/2025–present)</span><br/>
-          <span class="small">MSCA Postdoctoral Fellowship</span><br/>
-          <span class="small">Department of Structural, Geotechnical and Building Engineering (DISEG)</span>
-        </li>
-        <li>
-          <strong>Postdoctoral Fellow</strong>, Tohoku University, Japan — <span class="small">(09/2023–04/2025)</span><br/>
-          <span class="small">JSPS Postdoctoral Fellowship</span><br/>
-          <span class="small">Earthquake Engineering Lab, International Research Institute of Disaster Science (IRIDeS)</span>
-        </li>
-        <li>
-          <strong>Postdoctoral Fellow</strong>, ETH Zürich, Switzerland — <span class="small">(12/2022–08/2023)</span><br/>
-          <span class="small">Swiss Government Excellence Scholarship</span><br/>
-          <span class="small">Institute of Structural Engineering (IBK)</span>
-        </li>
-        <li>
-          <strong>Postdoctoral Researcher</strong>, Dong-A University, South Korea — <span class="small">(05/2022–11/2022)</span><br/>
-          <span class="small">Education and Research Center for ICT Integrated Safe Ocean Smart Cities</span>
-        </li>
-      </ul>
-    </section>
-  </main>
 
   <footer class="site">
     © 2025 Predaricka Deastra • GitHub Pages
   </footer>
 </body>
 </html>
-
-
