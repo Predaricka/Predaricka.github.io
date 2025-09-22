@@ -10,44 +10,103 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 <script defer src="scripts.js"></script>
+
+<!-- Minimal overrides to fix font sizes & spacing -->
+<style>
+  :root { --text:#111827; }
+
+  html, body {
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;            /* smaller base font */
+    line-height: 1.6;           /* comfortable line spacing */
+    color: var(--text);
+  }
+
+  /* Headings */
+  h1 { font-size: 28px; margin: 0 0 6px; }
+  h2 { font-size: 18px; margin: 0 0 10px; color: #1e40af; }
+
+  /* Default text elements */
+  p, li, div, span { font-size: 14px; line-height: 1.6; }
+  .small { font-size: 12.5px; }
+
+  /* Header spacing & icon row */
+  .badges { margin-top: 6px; }
+  .links-row {
+    margin-top: 14px;             /* space between MSCA badge and icons */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .icon svg { width: 22px; height: 22px; display: block; }
+
+  /* Card list spacing */
+  .card ul { margin: 8px 0 0 18px; padding: 0; }
+  .card li { margin: 8px 0; }
+
+  /* Avatar/title layout stays aligned to the left */
+  header.site { display: flex; gap: 20px; align-items: flex-start; padding: 32px 0 8px; }
+  .avatar { width: 96px; height: 96px; border-radius: 999px; overflow: hidden; border: 1px solid #e5e7eb; background: #fff; flex: 0 0 auto; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+</style>
 </head>
 <body>
   <div class="wrap">
     <header class="site">
       <div class="avatar"><img src="Predaricka.jpg" alt="Photo of Predaricka Deastra" /></div>
+
       <div class="title">
         <h1>Predaricka Deastra</h1>
         <p>B.Eng • M.Sc • AFHEA • Ph.D</p>
+
         <div class="badges">
           <span class="badge">MSCA Postdoctoral Fellow — Politecnico di Torino</span>
         </div>
+
         <div class="links-row" aria-label="External profiles">
           <!-- LinkedIn -->
           <a class="icon" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M6.94 8.67V19H4.35V8.67h2.59zM5.65 6.84a1.51 1.51 0 1 1 0-3.02 1.51 1.51 0 0 1 0 3.02zM19.65 19h-2.58v-5.13c0-1.22-.44-2.05-1.55-2.05-.85 0-1.35.57-1.57 1.13-.08.2-.1.48-.1.76V19h-2.58s.03-8.67 0-9.57h2.58v1.36c.34-.53.96-1.28 2.33-1.28 1.7 0 2.97 1.11 2.97 3.49V19z"/></svg>
           </a>
+
           <!-- Google Scholar -->
           <a class="icon" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 9 12 5 2 9l10 4 10-4z"/><path d="M6 12v3a6 3 0 0 0 12 0v-3"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M22 9 12 5 2 9l10 4 10-4z"/><path d="M6 12v3a6 3 0 0 0 12 0v-3"/>
+            </svg>
           </a>
+
           <!-- ORCID -->
           <a class="icon" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#A6CE39"/><text x="12" y="16.6" font-size="7" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">iD</text></svg>
-        <a class="icon" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" 
-   target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="10" fill="#00CCBB"/> <!-- ResearchGate teal -->
-    <text x="12" y="16" font-size="10" font-weight="700" text-anchor="middle" fill="#fff"
-          font-family="Arial, Helvetica, sans-serif">RG</text>
-  </svg>
-</a>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#A6CE39"/>
+              <text x="12" y="16.2" font-size="7" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">iD</text>
+            </svg>
+          </a>
+
+          <!-- ResearchGate -->
+          <a class="icon" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#00CCBB"/>
+              <text x="12" y="16" font-size="9" font-weight="700" text-anchor="middle" fill="#fff"
+                    font-family="Inter, system-ui, Arial, Helvetica, sans-serif">RG</text>
+            </svg>
+          </a>
+
           <!-- Scopus -->
           <a class="icon" href="https://www.scopus.com/authid/detail.uri?authorId=57202363094" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#EF6C00"/><text x="12" y="16" font-size="11" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">S</text></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" fill="#EF6C00"/>
+              <text x="12" y="16" font-size="9" font-weight="800" text-anchor="middle" fill="#fff" font-family="Inter, system-ui">S</text>
+            </svg>
           </a>
+
           <!-- CV -->
           <a class="icon" href="PDeastra_CV_Sep2025.pdf" download title="Download CV" aria-label="CV">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/>
+            </svg>
           </a>
         </div>
       </div>
@@ -67,27 +126,36 @@
   <main class="wrap">
     <section class="card">
       <h2>About</h2>
-      <p>Structural Dynamics specialist with combined academic and industrial experience, and recipient of three globally prestigious research fellowships:
-          the Marie Skłodowska-Curie Actions (MSCA, ~12% acceptance), the JSPS Fellowship (Japan, ~10%), and the Swiss Government Excellence Scholarship (SGES).
-          Proven track record in securing competitive research funding of total more than £250,000, producing peer-reviewed publications, and leading international collaborations across Europe and Asia.
-          Research interests include structural dynamics, vibration control (passive, semi-active and active), soil–structure interaction, finite element analysis, and the integration of artificial intelligence in vibration engineering.
-</p>
+      <p>
+        Structural Dynamics specialist with combined academic and industrial experience, and recipient of three globally prestigious research fellowships:
+        the Marie Skłodowska-Curie Actions (MSCA, ~12% acceptance), the JSPS Fellowship (Japan, ~10%), and the Swiss Government Excellence Scholarship (SGES).
+        Proven track record in securing competitive research funding of total more than £250,000, producing peer-reviewed publications, and leading international collaborations across Europe and Asia.
+        Research interests include structural dynamics, vibration control (passive, semi-active and active), soil–structure interaction, finite element analysis, and the integration of artificial intelligence in vibration engineering.
+      </p>
     </section>
 
     <section class="card">
       <h2>Academic Positions</h2>
       <ul>
-        <li><strong>Postdoctoral Fellow</strong> Politecnico di Torino, Italy — <span class="small">(05/2025–present)</span></li>
-        <div>MSCA Postdoctoral Fellowship</div>
-        <div>Department of Structural, Geotechnical and Building Engineering (DISEG)</div>
-        <li><strong>Postdoctoral Fellow</strong> Tohoku University, Japan — <span class="small">(09/2023–04/2025)</span></li>
-        <div>JSPS Postdoctoral Fellowship</div>
-        <div>Earthquake Engineering Lab, International Research Institute of Disaster Science (IRIDeS)</div>
-        <li><strong>Postdoctoral Fellow</strong> ETH Zürich, Switzerland — <span class="small">(12/2022–08/2023)</span></li>
-        <div>Swiss Government Excellence Scholarship</div>
-        <div>Institute of Structural Engineering (IBK)</div>
-        <li><strong>Postdoctoral Researcher</strong> Dong-A University (South Korea) — <span class="small">(05/2022–11/2022)</span></li>
-        <div>Education and Research Center for ICT Integrated Safe Ocean Smart Cities</div>
+        <li>
+          <strong>Postdoctoral Fellow</strong>, Politecnico di Torino, Italy — <span class="small">(05/2025–present)</span><br/>
+          <span class="small">MSCA Postdoctoral Fellowship</span><br/>
+          <span class="small">Department of Structural, Geotechnical and Building Engineering (DISEG)</span>
+        </li>
+        <li>
+          <strong>Postdoctoral Fellow</strong>, Tohoku University, Japan — <span class="small">(09/2023–04/2025)</span><br/>
+          <span class="small">JSPS Postdoctoral Fellowship</span><br/>
+          <span class="small">Earthquake Engineering Lab, International Research Institute of Disaster Science (IRIDeS)</span>
+        </li>
+        <li>
+          <strong>Postdoctoral Fellow</strong>, ETH Zürich, Switzerland — <span class="small">(12/2022–08/2023)</span><br/>
+          <span class="small">Swiss Government Excellence Scholarship</span><br/>
+          <span class="small">Institute of Structural Engineering (IBK)</span>
+        </li>
+        <li>
+          <strong>Postdoctoral Researcher</strong>, Dong-A University, South Korea — <span class="small">(05/2022–11/2022)</span><br/>
+          <span class="small">Education and Research Center for ICT Integrated Safe Ocean Smart Cities</span>
+        </li>
       </ul>
     </section>
   </main>
@@ -97,5 +165,3 @@
   </footer>
 </body>
 </html>
-
-
