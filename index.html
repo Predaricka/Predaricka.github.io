@@ -23,7 +23,7 @@
     background:var(--bg);
     color:var(--text);
     font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    font-size:14px;                 /* comfortable small base */
+    font-size:14px;
     line-height:1.6;
   }
   a{color:#1d4ed8; text-decoration:none}
@@ -34,11 +34,11 @@
   /* Header — centered stack */
   header.site{
     display:flex;
-    flex-direction:column;          /* stack vertically */
-    align-items:center;             /* center horizontally */
+    flex-direction:column;
+    align-items:center;
     text-align:center;
     padding:40px 0 18px;
-    gap:14px;                       /* space between blocks */
+    gap:14px;
   }
   .avatar{
     width:120px; height:120px; border-radius:999px; overflow:hidden;
@@ -58,7 +58,7 @@
 
   /* Icon row */
   .links-row{
-    margin-top:18px;                /* space under badge */
+    margin-top:18px;
     display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
   }
   .icon{
@@ -84,11 +84,11 @@
   }
   .nav-inner a:hover{background:#e5e7eb; text-decoration:none}
 
-  /* Cards / sections */
-  main.wrap{padding-top:20px}
+  /* Sections / cards */
+  main.wrap{padding-top:32px;}                /* extra space under nav */
   .card{
     background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
-    padding:20px; box-shadow:var(--shadow); margin-bottom:16px;
+    padding:24px; box-shadow:var(--shadow); margin-bottom:32px; /* bigger gap between sections */
   }
   h2{margin:0 0 10px; font-size:18px; color:var(--brand)}
   .card ul{margin:8px 0 0 18px; padding:0}
@@ -123,7 +123,7 @@
 
         <!-- Icons row -->
         <div class="links-row" aria-label="External profiles">
-          <!-- LinkedIn (official blue tile + white “in”) -->
+          <!-- LinkedIn -->
           <a class="icon" href="https://www.linkedin.com/in/predarickadeastra/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <rect width="24" height="24" rx="4" fill="#0A66C2"/>
@@ -131,7 +131,7 @@
             </svg>
           </a>
 
-          <!-- Google Scholar (hat + journal) -->
+          <!-- Google Scholar -->
           <a class="icon" href="https://scholar.google.com/citations?user=ms_rPKkAAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M22 9 12 5 2 9l10 4 10-4z"/>
@@ -139,7 +139,7 @@
             </svg>
           </a>
 
-          <!-- ORCID (green circle + iD) -->
+          <!-- ORCID -->
           <a class="icon" href="https://orcid.org/0000-0002-1709-4686" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#A6CE39"/>
@@ -147,7 +147,7 @@
             </svg>
           </a>
 
-          <!-- ResearchGate (teal circle + RG) -->
+          <!-- ResearchGate -->
           <a class="icon" href="https://www.researchgate.net/profile/Predaricka-Deastra?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate" aria-label="ResearchGate">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#00CCBB"/>
@@ -156,7 +156,7 @@
             </svg>
           </a>
 
-          <!-- Scopus (orange circle + S) -->
+          <!-- Scopus -->
           <a class="icon" href="https://www.scopus.com/authid/detail.uri?authorId=57202363094" target="_blank" rel="noopener" title="Scopus" aria-label="Scopus">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10" fill="#EF6C00"/>
@@ -164,7 +164,7 @@
             </svg>
           </a>
 
-          <!-- CV (download) -->
+          <!-- CV -->
           <a class="icon" href="PDeastra_CV_Sep2025.pdf" download title="Download CV" aria-label="CV">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M12 3v12"/><path d="M8 11l4 4 4-4"/><rect x="4" y="3" width="16" height="18" rx="2"/>
@@ -186,6 +186,7 @@
     </div>
   </nav>
 
+  <!-- SINGLE MAIN WRAPPER -->
   <main class="wrap">
     <section class="card">
       <h2>About</h2>
@@ -196,6 +197,7 @@
         Research interests include structural dynamics, vibration control (passive, semi-active and active), soil–structure interaction, finite element analysis, and the integration of artificial intelligence in vibration engineering.
       </p>
     </section>
+
     <section class="card">
       <h2>Education</h2>
       <ul>
@@ -216,8 +218,7 @@
         </li>
       </ul>
     </section>
-  </main>
-  <main class="wrap">   
+
     <section class="card">
       <h2>Academic Positions</h2>
       <ul>
@@ -249,5 +250,3 @@
   </footer>
 </body>
 </html>
-
-
